@@ -16,7 +16,7 @@ public class COMP258Labs {
     public static void main(String[] args) 
     {
      System.out.println("Welcome to COMP 258"); 
-     System.out.println("Lab 1: Array-based data structures"); 
+     
     }
     
 }
