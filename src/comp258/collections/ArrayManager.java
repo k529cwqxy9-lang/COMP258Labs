@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package comp258labs;
+package comp258.collections;
+import comp258.exceptions.NoItemsException;
+import comp258.exceptions.OutOfBoundsException;
 import java.util.Arrays;
 /**
  *
