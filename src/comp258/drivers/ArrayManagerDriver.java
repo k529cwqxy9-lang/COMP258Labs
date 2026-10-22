@@ -1,20 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.drivers;
 import comp258.collections.ArrayManager;
 import comp258.exceptions.NoItemsException;
 import comp258.exceptions.OutOfBoundsException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-/**
- *
- * @author CrgCA
- */
 public class ArrayManagerDriver {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        run(new Scanner(System.in));
+    }
+
+    // use the launcher scanner
+    public static void run(Scanner input) {
 
         int[] startingValues = {
             12, 7, 25, 4, 18, 9, 14, 21, 30
@@ -118,7 +114,7 @@ public class ArrayManagerDriver {
             System.out.println();
         }
 
-        input.close();
+        // keep the scanner open for the launcher
     }
 
     private static void showMenu() {

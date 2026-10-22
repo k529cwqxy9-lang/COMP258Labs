@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.collections;
 
-/**
- *
- * @author CrgCA
- */
 public class LinkedList {
 
     private ListNode items;
@@ -166,6 +158,40 @@ public class LinkedList {
             temp = temp.getNextNode();
             position++;
         }
+    }
+
+    // start from the first node
+    public void printRecursive() {
+        if (items == null) {
+            System.out.println("the list is empty");
+            return;
+        }
+        printRecursive(items);
+    }
+
+    private void printRecursive(ListNode node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.getData());
+        printRecursive(node.getNextNode());
+    }
+
+    public void printBackwards() {
+        if (items == null) {
+            System.out.println("the list is empty");
+            return;
+        }
+        printBackwards(items);
+    }
+
+    private void printBackwards(ListNode node) {
+        if (node == null) {
+            return;
+        }
+        // print after the next call returns
+        printBackwards(node.getNextNode());
+        System.out.println(node.getData());
     }
 
     public boolean isEmpty() 

@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.collections;
 
-/**
- *
- * @author CrgCA
- */
 public class GenericList<T extends Comparable<T>> {
 
     private GenericListNode<T> items;
@@ -32,7 +24,7 @@ public class GenericList<T extends Comparable<T>> {
             return;
         }
 
-        // Restart if current is missing
+        // restart if current is missing
         if (current == null) {
             current = items;
         }
@@ -55,7 +47,7 @@ public class GenericList<T extends Comparable<T>> {
             return;
         }
 
-        // Restart if current is missing
+        // restart if current is missing
         if (current == null) {
             current = items;
         }
@@ -159,7 +151,7 @@ public class GenericList<T extends Comparable<T>> {
             temp = temp.getNextNode();
         }
 
-        // Move current to the maximum item
+        // move current to the maximum item
         current = maximum;
 
         return maximum.getData();
@@ -185,6 +177,40 @@ public class GenericList<T extends Comparable<T>> {
             temp = temp.getNextNode();
             position++;
         }
+    }
+
+    // start from the first node
+    public void printRecursive() {
+        if (items == null) {
+            System.out.println("the list is empty");
+            return;
+        }
+        printRecursive(items);
+    }
+
+    private void printRecursive(GenericListNode<T> node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.getData());
+        printRecursive(node.getNextNode());
+    }
+
+    public void printBackwards() {
+        if (items == null) {
+            System.out.println("the list is empty");
+            return;
+        }
+        printBackwards(items);
+    }
+
+    private void printBackwards(GenericListNode<T> node) {
+        if (node == null) {
+            return;
+        }
+        // print after the next call returns
+        printBackwards(node.getNextNode());
+        System.out.println(node.getData());
     }
 
     public boolean isEmpty() {

@@ -1,82 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.programs;
+
+import comp258.drivers.ArrayManagerDriver;
 import comp258.framework.ConsoleProgram;
 
-/**
- *
- * @author CrgCA
- */
-public class LabLauncher
-        extends ConsoleProgram {
-
-    private ConsoleProgram currentProgram;
-
+public class LabLauncher extends ConsoleProgram {
     @Override
-    public void startProgram() {
-        System.out.println(
-                "COMP 258 lab launcher"
-        );
+    protected int getQuitOption() {
+        return 5;
     }
 
     @Override
-    public void endProgram() {
-        System.out.println(
-                "lab launcher closed"
-        );
+    public void startProgram() {
+        System.out.println("COMP 258 lab launcher");
     }
 
     @Override
     public int showMenu() {
-        System.out.println();
-        System.out.println(
-                "========== programs =========="
-        );
-        System.out.println(
-                "1. random number program"
-        );
-        System.out.println(
-                "2. linked list program"
-        );
-        System.out.println(
-                "3. generic list program"
-        );
-        System.out.println(
-                "0. exit launcher"
-        );
-
-        return readInt("choose a program: ");
+        System.out.println("\n========== programs ==========");
+        System.out.println("1. Manage data with ArrayManager");
+        System.out.println("2. Manage data with LinkedList");
+        System.out.println("3. Manage data with GenericLinkedList");
+        System.out.println("4. Showcase Recursive Functions");
+        System.out.println("5. Exit");
+        return readInt("Choose a program: ");
     }
 
     @Override
     public void executeAction(int choice) {
         switch (choice) {
             case 1:
-                currentProgram =
-                        new RandomNumberProgram();
+                ArrayManagerDriver.run(input);
                 break;
-
             case 2:
-                currentProgram =
-                        new LinkedListProgram();
+                new LinkedListProgram().run();
                 break;
-
             case 3:
-                currentProgram =
-                        new GenericListProgram();
+                new GenericListProgram().run();
                 break;
-
+            case 4:
+                new RecursiveFunctionsApp().run();
+                break;
             default:
-                System.out.println(
-                        "invalid program option"
-                );
-
-                return;
+                System.out.println("Please choose a number from 1 to 5.");
         }
+    }
 
-        // Run the selected program
-        currentProgram.run();
+    @Override
+    public void endProgram() {
+        System.out.println("Lab launcher closed.");
     }
 }

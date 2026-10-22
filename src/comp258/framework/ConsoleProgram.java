@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.framework;
 import java.util.Scanner;
-/**
- *
- * @author CrgCA
- */
 public abstract class ConsoleProgram {
 
-    protected Scanner input = new Scanner(System.in);
+    // share one scanner between menus
+    protected static final Scanner input = new Scanner(System.in);
     protected static final int QUIT_OPTION = 0;
 
     public final void run() {
@@ -21,13 +14,17 @@ public abstract class ConsoleProgram {
         do {
             choice = showMenu();
 
-            if (choice != QUIT_OPTION) {
+            if (choice != getQuitOption()) {
                 executeAction(choice);
             }
 
-        } while (choice != QUIT_OPTION);
+        } while (choice != getQuitOption());
 
         endProgram();
+    }
+
+    protected int getQuitOption() {
+        return QUIT_OPTION;
     }
 
     public void startProgram() {
