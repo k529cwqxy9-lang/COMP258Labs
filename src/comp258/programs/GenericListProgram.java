@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package comp258.programs;
 import comp258.collections.GenericList;
 import comp258.framework.ConsoleProgram;
 
-/**
- *
- * @author CrgCA
- */
 public class GenericListProgram
         extends ConsoleProgram {
 
@@ -48,6 +40,8 @@ public class GenericListProgram
         System.out.println("7. get current widget");
         System.out.println("8. advance");
         System.out.println("9. delete current");
+        System.out.println("10. print widget list with recursion");
+        System.out.println("11. print widget list backwards with recursion");
         System.out.println("0. exit program");
 
         return readInt("choose an option: ");
@@ -90,6 +84,14 @@ public class GenericListProgram
 
             case 9:
                 deleteCurrentWidget();
+                break;
+
+            case 10:
+                widgetList.printRecursive();
+                break;
+
+            case 11:
+                widgetList.printBackwards();
                 break;
 
             default:
