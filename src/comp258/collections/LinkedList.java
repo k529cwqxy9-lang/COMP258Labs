@@ -194,6 +194,29 @@ public class LinkedList {
         System.out.println(node.getData());
     }
 
+    public void removeAllOccurances(Object o) {
+        ListNode previous = null;
+        ListNode node = items;
+
+        while (node != null) {
+            if (java.util.Objects.equals(node.getData(), o)) {
+                // unlink the matching node
+                if (previous == null) {
+                    items = node.getNextNode();
+                } else {
+                    previous.setNextNode(node.getNextNode());
+                }
+
+                if (current == node) {
+                    current = node.getNextNode();
+                }
+            } else {
+                previous = node;
+            }
+            node = node.getNextNode();
+        }
+    }
+
     public boolean isEmpty() 
     {
         return items == null;

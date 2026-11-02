@@ -112,6 +112,28 @@ public class ArrayManager {
         count++;
     }
 
+    public void removeAllOccurances(Object o) {
+        if (!(o instanceof Integer)) {
+            return;
+        }
+
+        int value = (Integer) o;
+        int index = 0;
+
+        while (index < count) {
+            if (items[index] == value) {
+                // shift the remaining items left
+                for (int i = index; i < count - 1; i++) {
+                    items[i] = items[i + 1];
+                }
+                count--;
+                items[count] = 0;
+            } else {
+                index++;
+            }
+        }
+    }
+
     public boolean isEmpty() {
         return count == 0;
     }
