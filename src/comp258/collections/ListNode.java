@@ -1,4 +1,4 @@
-package comp258labs;
+package comp258.collections;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
