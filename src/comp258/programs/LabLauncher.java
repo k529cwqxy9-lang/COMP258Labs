@@ -6,7 +6,7 @@ import comp258.framework.ConsoleProgram;
 public class LabLauncher extends ConsoleProgram {
     @Override
     protected int getQuitOption() {
-        return 5;
+        return 6;
     }
 
     @Override
@@ -21,7 +21,8 @@ public class LabLauncher extends ConsoleProgram {
         System.out.println("2. Manage data with LinkedList");
         System.out.println("3. Manage data with GenericLinkedList");
         System.out.println("4. Showcase Recursive Functions");
-        System.out.println("5. Exit");
+        System.out.println("5. Manage data with BinarySearchTree");
+        System.out.println("6. Exit");
         return readInt("Choose a program: ");
     }
 
@@ -40,8 +41,11 @@ public class LabLauncher extends ConsoleProgram {
             case 4:
                 new RecursiveFunctionsApp().run();
                 break;
+            case 5:
+                new BinarySearchTreeProgram().run();
+                break;
             default:
-                System.out.println("Please choose a number from 1 to 5.");
+                System.out.println("Please choose a number from 1 to 6.");
         }
     }
 
